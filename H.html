@@ -3,270 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الشركة الذهبية | خدمات التقنية الفاخرة</title>
+    <title>الشركة الذهبية | فخامة التكنولوجيا</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- المتغيرات اللونية الفاخرة --- */
         :root {
             --gold: #d4af37;
-            --gold-light: #f1d592;
-            --black-deep: #0a0a0a;
-            --black-soft: #1a1a1a;
+            --black: #0a0a0a;
+            --black-soft: #141414;
             --white: #ffffff;
-            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --gray: #888;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Tajawal', sans-serif; }
-        html { scroll-behavior: smooth; }
-        body { background-color: var(--black-deep); color: var(--white); overflow-x: hidden; }
+        body { background-color: var(--black); color: var(--white); scroll-behavior: smooth; overflow-x: hidden; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* --- النافبار الذهبي الأسود --- */
-        .header {
-            position: fixed; top: 0; width: 100%; z-index: 9999;
-            background: var(--black-deep);
-            border-bottom: 2px solid var(--gold); /* الخط الذهبي المميز */
-            transition: var(--transition);
+        /* --- 1. النافبار الفاخر --- */
+        header {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(10, 10, 10, 0.98);
+            border-bottom: 2px solid var(--gold);
+            padding: 15px 0;
         }
-        .navbar { display: flex; justify-content: space-between; align-items: center; height: 90px; }
-        .logo { font-size: 28px; font-weight: 900; color: var(--gold); text-decoration: none; text-transform: uppercase; }
-        
-        .nav-menu { display: flex; list-style: none; gap: 30px; }
-        .nav-menu a { 
-            text-decoration: none; color: var(--white); font-weight: 600; 
-            font-size: 16px; transition: var(--transition); position: relative;
-        }
+        .navbar { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 26px; font-weight: 900; color: var(--gold); text-decoration: none; }
+        .nav-menu { display: flex; list-style: none; gap: 25px; }
+        .nav-menu a { color: var(--white); text-decoration: none; font-weight: 600; font-size: 15px; transition: 0.3s; }
         .nav-menu a:hover { color: var(--gold); }
-        /* خط ذهبي تحت الروابط عند الحوم */
-        .nav-menu a::after {
-            content: ''; position: absolute; bottom: -5px; right: 0;
-            width: 0; height: 2px; background: var(--gold); transition: var(--transition);
-        }
-        .nav-menu a:hover::after { width: 100%; }
 
-        .menu-toggle { display: none; color: var(--gold); font-size: 25px; cursor: pointer; }
-
-        /* --- الواجهة الرئيسية (Hero) --- */
+        /* --- 2. الهيرو (الواجهة الرئيسية) --- */
         .hero {
-            height: 100vh; display: flex; align-items: center; justify-content: center;
-            text-align: center; position: relative; overflow: hidden;
-            background: radial-gradient(circle, rgba(20,20,20,1) 0%, rgba(0,0,0,1) 100%);
+            height: 90vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; position: relative;
         }
-        /* اللوجو الخلفي */
-        .hero-bg-logo {
-            position: absolute; font-size: 40vw; color: rgba(212, 175, 55, 0.03);
-            z-index: 1; user-select: none; pointer-events: none;
-        }
-        .hero-content { z-index: 2; position: relative; }
-        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; margin-bottom: 20px; color: var(--gold); }
-        .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; color: #ccc; }
-        .gold-btn {
-            padding: 15px 40px; background: var(--gold); color: var(--black-deep);
-            text-decoration: none; font-weight: 900; border-radius: 50px;
-            transition: var(--transition); display: inline-block;
-        }
-        .gold-btn:hover { background: var(--gold-light); transform: scale(1.05); box-shadow: 0 0 20px var(--gold); }
+        .hero-bg-logo { position: absolute; font-size: 35vw; color: rgba(212, 175, 55, 0.03); z-index: 1; pointer-events: none; }
+        .hero-content { z-index: 2; }
+        .hero h1 { font-size: 4rem; font-weight: 900; color: var(--gold); margin-bottom: 20px; text-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
+        .hero p { font-size: 1.3rem; color: var(--gray); max-width: 800px; margin: 0 auto 30px; }
 
-        /* --- قسم البطاقات (3 تحت 3) --- */
-        .services { padding: 100px 0; }
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-size: 2.5rem; color: var(--gold); position: relative; display: inline-block; padding-bottom: 10px; }
-        .section-title h2::after { content: ''; position: absolute; bottom: 0; right: 25%; width: 50%; height: 3px; background: var(--gold); }
-
-        .services-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
-        }
-        .s-card {
-            background: var(--black-soft); padding: 40px; border-radius: 15px;
-            border: 1px solid #333; text-align: center; transition: var(--transition);
-        }
-        .s-card:hover { border-color: var(--gold); transform: translateY(-10px); background: #222; }
-        .s-card i { font-size: 50px; color: var(--gold); margin-bottom: 20px; }
-        .s-card h3 { font-size: 20px; margin-bottom: 15px; color: var(--white); }
-        .s-card p { font-size: 14px; color: #999; }
-
-        /* --- الأسئلة الشائعة (FAQ) --- */
-        .faq { padding: 100px 0; background: #050505; }
-        .faq-wrapper { max-width: 850px; margin: 0 auto; }
-        .faq-item { background: var(--black-soft); margin-bottom: 15px; border-radius: 8px; border: 1px solid #333; overflow: hidden; }
-        .faq-header {
-            padding: 20px 25px; display: flex; justify-content: space-between;
-            align-items: center; cursor: pointer; transition: 0.3s;
-        }
-        .faq-header:hover { background: #222; }
-        .faq-header h3 { font-size: 18px; color: var(--gold-light); }
-        .faq-icon { font-size: 20px; color: var(--gold); transition: 0.3s; }
+        /* --- 3. قسم الخدمات (3 تحت 3) بالمنحنيات الفنية --- */
+        .section { padding: 100px 0; }
+        .title { text-align: center; margin-bottom: 60px; font-size: 2.5rem; color: var(--gold); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         
-        .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; background: #111; }
-        .faq-body p { padding: 25px; color: #bbb; line-height: 1.8; border-top: 1px solid #222; }
-        .faq-item.active .faq-body { max-height: 300px; }
+        .card {
+            background: var(--black-soft); padding: 50px 30px; text-align: center;
+            border-radius: 180px 180px 30px 30px; /* هذا التصميم المنحني مستوحى من صورك */
+            border: 1px solid #222; transition: 0.4s;
+        }
+        .card:hover { border-color: var(--gold); transform: translateY(-15px); box-shadow: 0 15px 30px rgba(212, 175, 55, 0.1); }
+        .card i { font-size: 55px; color: var(--gold); margin-bottom: 25px; }
+        .card h3 { margin-bottom: 15px; font-size: 1.5rem; }
+
+        /* --- 4. باقات العمل (نمو، انطلاق، ريادة) --- */
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .p-card {
+            background: var(--black-soft); padding: 50px 30px; border-radius: 20px;
+            text-align: center; border: 1px solid #333; position: relative; transition: 0.3s;
+        }
+        .p-card.featured { border: 2px solid var(--gold); transform: scale(1.05); background: #0f0f0f; }
+        .badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; padding: 5px 20px; border-radius: 50px; font-weight: 900; font-size: 12px; }
+        .price { font-size: 3.5rem; font-weight: 900; margin: 25px 0; }
+        .price span { font-size: 1rem; color: var(--gold); }
+        .p-list { list-style: none; margin-bottom: 30px; color: var(--gray); text-align: right; display: inline-block; }
+        .p-list li { margin-bottom: 12px; }
+        .p-list li i { color: var(--gold); margin-left: 10px; }
+
+        /* --- 5. الأسئلة الشائعة (Interactive FAQ) --- */
+        .faq-wrapper { max-width: 850px; margin: 0 auto; }
+        .faq-item { background: var(--black-soft); margin-bottom: 15px; border-radius: 12px; border: 1px solid #222; cursor: pointer; }
+        .faq-header { padding: 25px; display: flex; justify-content: space-between; align-items: center; }
+        .faq-body { max-height: 0; overflow: hidden; transition: 0.4s ease; background: #0d0d0d; }
+        .faq-body p { padding: 25px; color: var(--gray); line-height: 1.8; border-top: 1px solid #1a1a1a; }
+        .faq-item.active .faq-body { max-height: 250px; }
+        .faq-icon { color: var(--gold); font-size: 20px; transition: 0.3s; }
         .faq-item.active .faq-icon { transform: rotate(180deg); }
 
-        /* --- التجاوب (Responsive) --- */
-        @media (max-width: 992px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+        /* --- 6. الفوتر الختامي والتواصل --- */
+        .footer {
+            background: #000; padding: 80px 0 30px; border-top: 2px solid var(--gold);
+            text-align: center;
+        }
+        .footer h2 { color: var(--gold); margin-bottom: 40px; font-size: 2.2rem; }
+        .contact-grid { display: flex; justify-content: center; gap: 50px; margin-bottom: 50px; flex-wrap: wrap; }
+        .c-item i { color: var(--gold); font-size: 24px; display: block; margin-bottom: 10px; }
+        .c-item span { font-weight: 700; font-size: 1.1rem; }
+        
+        .social-links { margin-bottom: 40px; }
+        .social-links a { color: var(--white); font-size: 24px; margin: 0 15px; transition: 0.3s; }
+        .social-links a:hover { color: var(--gold); }
+        .copy { color: #444; font-size: 14px; border-top: 1px solid #111; padding-top: 30px; }
+
+        /* زر ذهبي موحد */
+        .btn-gold {
+            background: var(--gold); color: #000; padding: 15px 40px;
+            text-decoration: none; font-weight: 900; border-radius: 5px;
+            display: inline-block; transition: 0.3s; border: none; cursor: pointer;
+        }
+        .btn-gold:hover { background: #f1d592; box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+
         @media (max-width: 768px) {
-            .menu-toggle { display: block; }
-            .nav-menu {
-                position: fixed; top: 90px; right: -100%; width: 100%; height: calc(100vh - 90px);
-                background: var(--black-deep); flex-direction: column; padding: 40px; transition: 0.5s;
-            }
-            .nav-menu.active { right: 0; }
-            .services-grid { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2.5rem; }
+            .nav-menu { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <header class="header">
+    <header>
         <nav class="container navbar">
-            <a href="#" class="logo">GOLDEN<span>TECH</span></a>
-            <ul class="nav-menu" id="nav-menu">
+            <a href="#" class="logo">GOLDEN<span>PRO</span></a>
+            <ul class="nav-menu">
                 <li><a href="#home">الرئيسية</a></li>
-                <li><a href="#services">الخدمات</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#pricing">الباقات</a></li>
                 <li><a href="#faq">الأسئلة</a></li>
-                <li><a href="#contact" class="gold-btn">تواصل معنا</a></li>
+                <li><a href="#contact" class="btn-gold" style="padding: 8px 20px;">ابدأ الآن</a></li>
             </ul>
-            <div class="menu-toggle" id="mobile-btn"><i class="fas fa-bars"></i></div>
         </nav>
     </header>
 
     <section class="hero" id="home">
-        <div class="hero-bg-logo"><i class="fas fa-crown"></i></div>
+        <div class="hero-bg-logo"><i class="fas fa-shield-alt"></i></div>
         <div class="hero-content">
-            <h1>إبداع بلا حدود <br><span>بمعايير عالمية</span></h1>
-            <p>نحن نصمم المستقبل الرقمي بأكواد ذهبية تضمن لك التفوق في عالم التكنولوجيا والابتكار.</p>
-            <a href="#services" class="gold-btn">اكتشف خدماتنا</a>
+            <h1>أكواد من ذهب..<br>بأمان لا يُخترق</h1>
+            <p>نحن الشركة الرائدة في تقديم الحلول البرمجية الفاخرة، نجمع بين قوة الأداء وأمان المستقبل.</p>
+            <a href="#services" class="btn-gold">اكتشف خدماتنا الملكية</a>
         </div>
     </section>
 
-    <section class="services" id="services">
+    <section class="section container" id="services">
+        <h2 class="title">خدماتنا المتخصصة</h2>
+        <div class="grid">
+            <div class="card"><i class="fas fa-user-lock"></i><h3>أمن سيبراني</h3><p>تأمين شامل للبنية التحتية ضد كافة الهجمات المتطورة.</p></div>
+            <div class="card"><i class="fas fa-search-dollar"></i><h3>تحسين SEO</h3><p>احتلال النتائج الأولى وضمان ظهور علامتك في المقدمة.</p></div>
+            <div class="card"><i class="fas fa-code"></i><h3>برمجة ويب</h3><p>مواقع فائقة السرعة مبنية بأحدث التقنيات العالمية.</p></div>
+            <div class="card"><i class="fas fa-server"></i><h3>برمجة مواقع</h3><p>أنظمة معقدة وحلول برمجية خاصة مصممة لنمو عملك.</p></div>
+            <div class="card"><i class="fas fa-pen-nib"></i><h3>تصميم UI UX</h3><p>واجهات مستخدم تذهل الأنظار وتوفر رحلة استخدام مثالية.</p></div>
+            <div class="card"><i class="fas fa-mobile-alt"></i><h3>تطبيقات جوال</h3><p>برمجة تطبيقات Android و iOS متكاملة وبأداء مذهل.</p></div>
+        </div>
+    </section>
+
+    <section class="section container" id="pricing" style="background: #080808; border-radius: 50px;">
+        <h2 class="title">باقات الاستثمار الرقمي</h2>
+        <div class="pricing-grid">
+            <div class="p-card">
+                <h3>باقة انطلاق</h3>
+                <div class="price">250<span>$</span></div>
+                <ul class="p-list">
+                    <li><i class="fas fa-check"></i> موقع تعريفي احترافي</li>
+                    <li><i class="fas fa-check"></i> دعم فني لمدة شهرين</li>
+                    <li><i class="fas fa-check"></i> حماية SSL أساسية</li>
+                </ul>
+                <button class="btn-gold" style="width:100%">اطلبها الآن</button>
+            </div>
+            <div class="p-card featured">
+                <div class="badge">الأكثر طلباً</div>
+                <h3>باقة نمو</h3>
+                <div class="price">600<span>$</span></div>
+                <ul class="p-list">
+                    <li><i class="fas fa-check"></i> موقع متعدد الصفحات</li>
+                    <li><i class="fas fa-check"></i> تحسين SEO كامل</li>
+                    <li><i class="fas fa-check"></i> أمان سيبراني متقدم</li>
+                </ul>
+                <button class="btn-gold" style="width:100%">اطلبها الآن</button>
+            </div>
+            <div class="p-card">
+                <h3>باقة ريادة</h3>
+                <div class="price">1200<span>$</span></div>
+                <ul class="p-list">
+                    <li><i class="fas fa-check"></i> تطبيق ويب متكامل</li>
+                    <li><i class="fas fa-check"></i> دعم فني VIP مدى الحياة</li>
+                    <li><i class="fas fa-check"></i> استضافة سنوية مجانية</li>
+                </ul>
+                <button class="btn-gold" style="width:100%">اطلبها الآن</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section container" id="faq">
+        <h2 class="title">الأسئلة الشائعة</h2>
+        <div class="faq-wrapper">
+            <div class="faq-item">
+                <div class="faq-header"><h3>ما هي مدة تنفيذ مشروع باقة نمو؟</h3><i class="fas fa-chevron-down faq-icon"></i></div>
+                <div class="faq-body"><p>يتم تسليم المشروع بالكامل خلال 14 إلى 21 يوم عمل، مع اختبارات الجودة والأمان.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-header"><h3>هل توفرون ضماناً ضد الثغرات البرمجية؟</h3><i class="fas fa-chevron-down faq-icon"></i></div>
+                <div class="faq-body"><p>نعم، جميع أكوادنا تخضع لفحص أمني دقيق ونقدم شهادة ضمان للأمان السيبراني مع كل مشروع.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact">
         <div class="container">
-            <div class="section-title">
-                <h2>خدماتنا المتكاملة</h2>
+            <h2>لنبدأ رحلة نجاحك اليوم</h2>
+            <div class="contact-grid">
+                <div class="c-item"><i class="fas fa-phone-alt"></i><span>+966 500 000 000</span></div>
+                <div class="c-item"><i class="fas fa-envelope"></i><span>info@goldentech.com</span></div>
+                <div class="c-item"><i class="fas fa-map-marker-alt"></i><span>الرياض، المملكة العربية السعودية</span></div>
             </div>
-            <div class="services-grid">
-                <div class="s-card">
-                    <i class="fas fa-user-shield"></i>
-                    <h3>أمن سيبراني</h3>
-                    <p>حماية بياناتك وأنظمتك بأقوى بروتوكولات التشفير العالمية ضد كافة أنواع التهديدات.</p>
-                </div>
-                <div class="s-card">
-                    <i class="fas fa-rocket"></i>
-                    <h3>تحسين SEO</h3>
-                    <p>تصدر نتائج البحث الأولى في جوجل وضمان وصول جمهورك إليك قبل منافسيك.</p>
-                </div>
-                <div class="s-card">
-                    <i class="fas fa-laptop-code"></i>
-                    <h3>برمجة ويب</h3>
-                    <p>بناء مواقع سريعة جداً باستخدام أحدث التقنيات لضمان تجربة مستخدم خالية من الأخطاء.</p>
-                </div>
-                <div class="s-card">
-                    <i class="fas fa-project-diagram"></i>
-                    <h3>برمجة مواقع</h3>
-                    <p>أنظمة إدارة محتوى متطورة وتطبيقات ويب سحابية مخصصة لاحتياجات عملك.</p>
-                </div>
-                <div class="s-card">
-                    <i class="fas fa-bezier-curve"></i>
-                    <h3>تصميم UI UX</h3>
-                    <p>واجهات مستخدم جذابة وتجارب استخدام بديهية تزيد من ولاء عملائك وتفاعهم.</p>
-                </div>
-                <div class="s-card">
-                    <i class="fas fa-code"></i>
-                    <h3>حلول مخصصة</h3>
-                    <p>نكتب الأكواد التي يحتاجها مشروعك بدقة متناهية لضمان استقرار الأداء والنمو.</p>
-                </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
+            <div class="copy">جميع الحقوق محفوظة © 2026 | جودنتك - التميز التقني الفاخر</div>
         </div>
-    </section>
-
-    <section class="faq" id="faq">
-        <div class="container">
-            <div class="section-title">
-                <h2>الأسئلة الشائعة</h2>
-            </div>
-            <div class="faq-wrapper">
-                <div class="faq-item">
-                    <div class="faq-header">
-                        <h3>هل تتوفر حماية ضد هجمات الـ DDoS؟</h3>
-                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
-                    </div>
-                    <div class="faq-body">
-                        <p>نعم، نستخدم طبقات حماية ذكية تراقب حركة البيانات على مدار الساعة لصد أي هجوم قبل وصوله لخوادمك.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-header">
-                        <h3>كيف يتم احتساب تكلفة الـ SEO؟</h3>
-                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
-                    </div>
-                    <div class="faq-body">
-                        <p>تعتمد التكلفة على مدى صعوبة الكلمات المفتاحية وحالة الموقع التقنية، ونقدم تقارير شهرية توضح نمو الأداء.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-header">
-                        <h3>هل تصاميم UI UX متوافقة مع الهواتف؟</h3>
-                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
-                    </div>
-                    <div class="faq-body">
-                        <p>بكل تأكيد، نحن نتبع منهجية "الجوال أولاً" لضمان سهولة استخدام الموقع على الشاشات الصغيرة والكبيرة.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer style="padding: 40px; text-align: center; background: #000; border-top: 1px solid var(--gold);">
-        <p style="color: var(--gold);">جميع الحقوق محفوظة © 2026 | GOLDEN TECH</p>
     </footer>
 
     <script>
-        // 1. التحكم في النافبار للموبايل
-        const mobileBtn = document.getElementById('mobile-btn');
-        const navMenu = document.getElementById('nav-menu');
-        
-        mobileBtn.onclick = () => {
-            navMenu.classList.toggle('active');
-            mobileBtn.querySelector('i').classList.toggle('fa-bars');
-            mobileBtn.querySelector('i').classList.toggle('fa-times');
-        };
-
-        // 2. نظام الأسئلة الشائعة (+ / -)
-        const faqItems = document.querySelectorAll('.faq-item');
-        
-        faqItems.forEach(item => {
-            const header = item.querySelector('.faq-header');
-            const icon = item.querySelector('.faq-icon i');
-
-            header.onclick = () => {
-                // إغلاق أي سؤال آخر مفتوح (اختياري)
-                faqItems.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('active');
-                        otherItem.querySelector('.faq-icon i').className = 'fas fa-plus';
-                    }
-                });
-
-                // فتح أو إغلاق السؤال الحالي
-                item.classList.toggle('active');
-                if (item.classList.contains('active')) {
-                    icon.className = 'fas fa-minus';
-                } else {
-                    icon.className = 'fas fa-plus';
-                }
-            };
-        });
-
-        // 3. إغلاق القائمة عند النقر على رابط (للموبايل)
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.onclick = () => {
-                navMenu.classList.remove('active');
-                mobileBtn.querySelector('i').className = 'fas fa-bars';
-            }
+        // تفعيل الأسئلة الشائعة +/-
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
         });
     </script>
 </body>
